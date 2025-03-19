@@ -1,0 +1,163 @@
+/* Main Container */
+.transactionList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;                 
+  padding: 2rem;               
+  background: #fff;
+  border-radius: 0.75rem;      
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.1);  
+  max-width: 90vw;             
+  width: 60rem;                
+  margin: 0 auto;              
+}
+
+/* Group */
+.group {
+  border-bottom: 0.0625rem solid #e0e0e0;  
+  padding-bottom: 1.5rem;                  
+  margin-bottom: 1.5rem;                    
+}
+
+.groupDate {
+  font-size: 1.5rem;         
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+/* Transaction Item */
+.transactionItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;              
+  border: 0.125rem solid #ccc;  
+  border-radius: 0.75rem;       
+  transition: background 0.3s;
+  font-size: 1.25rem;           
+}
+
+.transactionItem:hover {
+  background: #f9f9f9;
+}
+
+/* Logo */
+.logo {
+  width: 3.5rem;                
+  height: 3.5rem;              
+  object-fit: contain;
+  margin-right: 1rem;
+}
+
+/* Details */
+.details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title {
+  font-size: 1.25rem;          
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 1rem;             
+  color: #777;
+}
+
+.separator {
+  margin: 0 0.75rem;            
+  color: #999;
+}
+
+/* Amount Styling */
+.amount {
+  font-size: 1.5rem;           
+  font-weight: bold;
+}
+
+.inflow {
+  color: green;
+}
+
+.outflow {
+  color: red;
+}
+
+
+.loadMoreBtn {
+  padding: 0.75rem 1.5rem;      
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1.25rem;          
+}
+
+.loadMoreBtn:hover {
+  background: #0056b3;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  color: #555;
+  font-size: 1.25rem;           
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .transactionList {
+      max-width: 80vw;           
+      padding: 1.5rem;           
+  }
+  
+  .transactionItem {
+      font-size: 1.1rem;
+  }
+
+  .amount {
+      font-size: 1.25rem;
+  }
+
+  .logo {
+      width: 3rem;              
+      height: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .transactionList {
+      max-width: 95vw;          
+      padding: 1rem;             
+  }
+
+  .pagination {
+      flex-direction: column;
+      gap: 0.75rem;
+  }
+
+  .pagination button {
+      width: 100%;
+  }
+
+  .transactionItem {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 1rem;
+  }
+
+  .logo {
+      width: 2.5rem;
+      height: 2.5rem;
+  }
+
+  .amount {
+      font-size: 1rem;
+  }
+}

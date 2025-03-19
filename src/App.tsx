@@ -6,18 +6,7 @@ import '@fontsource/source-sans-pro/700.css';
 import ContentWidthContainer from './components/layout/ContentWidthContainer';
 
 import './App.css';
-import FilterBar from './components/layout/ContentWidthContainer/Filter/FilterBar';
-
-/*
-  To reference icons:
-  
-  import checkIcon from "./assets/check-circle-fill.svg";
-  import receiptIcon from "./assets/receipt.svg";
-  import plusIcon from "./assets/plus.svg";
-  import minusIcon from "./assets/minus.svg";
-
-  <img src={receiptIcon} />
-*/
+import TransactionsPage from './pages/TransactionsPage';
 
 const App = () => {
   return (
@@ -25,10 +14,7 @@ const App = () => {
       <main className="content">
         <h1>Thriday Code Challenge</h1>
         <section>
-          <FilterBar />
-        </section>
-        <section>
-          <p>Transaction List</p>
+          <TransactionsPage/>
         </section>
       </main>
     </ContentWidthContainer>
