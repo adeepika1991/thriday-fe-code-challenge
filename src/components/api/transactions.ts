@@ -1,10 +1,31 @@
-import axios from 'axios';
-import { TransactionResponse } from '../TransactionList/types';  // Centralize types in a single file
+import axios from "axios";
+import { Transaction } from "../TransactionList/types";
 
-const BASE_URL = 'http://localhost:3004/transactions';  // Replace with your actual API URL
+const BASE_URL = "http://localhost:3004/transactions";
 
-// ✅ Return a TransactionResponse object, not an array
-export const fetchTransactions = async (page: number, limit: number): Promise<TransactionResponse> => {
-  const response = await axios.get<TransactionResponse>(`${BASE_URL}?_page=${page}&_limit=${limit}`);
- return response.data;
+interface PaginatedResponse {
+  data: Transaction[];
+  totalPages: number;
+  currentPage: number;
+}
+
+export const fetchTransactions = async (
+  page: number,
+  limit: number
+): Promise<PaginatedResponse> => {
+  const response = await axios.get<Transaction[]>(`${BASE_URL}`);
+
+  const totalCount = response.data.length; 
+  const totalPages = Math.ceil(totalCount / limit);
+
+  const startIndex = (page - 1) * limit;
+  const endIndex = startIndex + limit;
+
+  const paginatedData = response.data.slice(startIndex, endIndex);
+
+  return {
+    data: paginatedData,
+    totalPages,
+    currentPage: page,
+  };
 };

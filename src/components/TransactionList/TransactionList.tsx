@@ -23,9 +23,10 @@ const TransactionList: React.FC<TransactionListProps> = ({ activeFilter }) => {
   });
 
   const filteredTransactions = useMemo(() => {
-    if (!data) return [];
+    if (!data?.data) return [];
 
-    return data?.filter((transaction: { cashflow: string; }) => {
+    // ✅ Correctly filter on `data.data` (not data directly)
+    return data.data.filter((transaction: Transaction) => {
       if (activeFilter === "All") return true;
       if (activeFilter === "Income") return transaction.cashflow === "inflow";
       if (activeFilter === "Expense") return transaction.cashflow === "outflow";
@@ -48,6 +49,32 @@ const TransactionList: React.FC<TransactionListProps> = ({ activeFilter }) => {
       ) : (
         <div>No matching transactions</div>
       )}
+
+      {/* Pagination Controls */}
+      <div className={styles.pagination}>
+        <button
+          onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+          disabled={page === 1 || isFetching}
+        >
+          Previous
+        </button>
+
+        <span>
+          Page {data?.currentPage} of {data?.totalPages}
+        </span>
+
+        <button
+          onClick={() =>
+            setPage((prev) => Math.min(prev + 1, data?.totalPages as number))
+          }
+          disabled={
+            (data?.currentPage as number) === (data?.totalPages as number) ||
+            isFetching
+          }
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };

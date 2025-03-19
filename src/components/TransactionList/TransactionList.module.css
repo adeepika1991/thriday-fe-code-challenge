@@ -161,3 +161,34 @@
       font-size: 1rem;
   }
 }
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;                 
+  margin-top: 2rem;           
+}
+
+.pagination button {
+  padding: 0.75rem 1.5rem;    
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1.25rem;         
+  border-radius: 0.5rem;
+}
+
+.pagination button:disabled {
+  background: #ccc;           
+  cursor: not-allowed;         
+}
+
+.pagination span {
+  font-size: 1.25rem;         
+  font-weight: bold;
+  color: #555;
+}

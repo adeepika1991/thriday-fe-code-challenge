@@ -8,14 +8,11 @@ export interface Transaction {
     cashflow: 'inflow' | 'outflow';
     amount: string;
     logoUrl: string;
-  }
-  
-  // ✅ API response shape
-  export interface TransactionResponse {
-    [x: string]: any;
-    data: Transaction[];    // Array of transactions
-    total: number;           // Total number of transactions
-    currentPage: number;     // Current page
-    totalPages: number;      // Total pages
-  }
-  
+}
+
+// ✅ Updated API response shape (manual pagination)
+export interface TransactionResponse {
+    data: Transaction[];      // Array of transactions for the current page
+    totalPages: number;        // Total pages based on the limit
+    currentPage: number;       // Current page
+}
