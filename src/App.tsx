@@ -6,6 +6,7 @@ import '@fontsource/source-sans-pro/700.css';
 import ContentWidthContainer from './components/layout/ContentWidthContainer';
 
 import './App.css';
+import FilterBar from './components/layout/ContentWidthContainer/Filter/FilterBar';
 
 /*
   To reference icons:
@@ -24,7 +25,7 @@ const App = () => {
       <main className="content">
         <h1>Thriday Code Challenge</h1>
         <section>
-          <p>Toolbar</p>
+          <FilterBar />
         </section>
         <section>
           <p>Transaction List</p>

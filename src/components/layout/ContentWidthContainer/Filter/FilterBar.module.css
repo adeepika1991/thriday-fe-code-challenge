@@ -1,0 +1,71 @@
+/* FilterBar */
+.filterBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;                     /* Slightly larger spacing */
+    margin: 2rem 0;
+  }
+  
+  .filterButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;                     /* Scalable spacing */
+    padding: 0 1.5rem;                /* Horizontal padding only */
+    border: 0.125rem solid #ccc;      /* Scalable border */
+    border-radius: 0.5rem;            /* Rounded corners */
+    background-color: #f5f5f5;
+    color: #333;
+    font-size: 1.75rem;                /* Larger and scalable font size */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 8rem;                   /* Consistent button width */
+    height: 5rem;                      /* Uniform height for all buttons */
+    outline: none;
+    box-shadow: none;
+  
+    /* Remove tap highlight on mobile */
+    -webkit-tap-highlight-color: transparent;  
+    user-select: none;                     
+    appearance: none;                     
+  }
+  
+  /* Square buttons for icons */
+  .square {
+    min-width: 5rem;                   /* Square shape */
+    height: 5rem;                      /* Ensure square buttons are same height */
+    padding: 0;                         /* Remove inner padding */
+    font-size: 1.5rem;                  /* Larger icon/font size */
+  }
+  
+  /* Hover effect */
+  .filterButton:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Active button */
+  .active {
+    background-color: #00D373 !important;
+    color: #fff !important;
+    border-color: #00D373 !important;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Click effect */
+  .filterButton:active, .filterButton:focus {
+    background-color: #00D373 !important;  
+    color: #fff !important;                
+    border-color: #00D373 !important;      
+    transform: scale(0.98);
+  }
+  
+  /* Icon styles */
+  .icon {
+    width: 2rem;                        /* Larger scalable icon size */
+    height: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor;
+  }
+  
